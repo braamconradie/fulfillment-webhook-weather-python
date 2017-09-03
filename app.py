@@ -55,7 +55,7 @@ def processRequest(req):
     if req.get("result").get("action") != "braameksp":  
         return {}
     
-    tadada = urlopen('https://dweet.io/dweet/for/braamapiai?hello=beste koning')
+    tadada = urlopen("https://dweet.io/dweet/for/braamapiai?hello=beste koning")
     baseurl = "https://query.yahooapis.com/v1/public/yql?"
     yql_query = makeYqlQuery(req)
     if yql_query is None:
@@ -107,7 +107,7 @@ def makeWebhookResult(data):
 
     print("Response:")
     print(speech)
-    speech = 'wie laaste lag, lag die lekkerste'
+    speech = 'wie laaste lag, huil die lekkerste'
 
     return {
         "speech": speech,
