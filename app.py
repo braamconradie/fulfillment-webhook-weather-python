@@ -24,7 +24,6 @@ from urllib.error import HTTPError
 
 import json
 import os
-import requests
 
 from flask import Flask
 from flask import request
@@ -51,11 +50,8 @@ def webhook():
 
 
 def processRequest(req):
-    # baie belangrik - the action in "" is die sleutelwoord vir API.AI
-    if req.get("result").get("action") != "braameksp":  
+    if req.get("result").get("action") != "braameksp":
         return {}
-    
-    #tadada = urlopen("https://dweet.io/dweet/for/braamapiai?hello=beste koning")
     baseurl = "https://query.yahooapis.com/v1/public/yql?"
     yql_query = makeYqlQuery(req)
     if yql_query is None:
@@ -107,7 +103,7 @@ def makeWebhookResult(data):
 
     print("Response:")
     print(speech)
-    speech = 'wie laaste lag, huil die lekkerste'
+    speech = 'wie laaste lag, lag die lekkerste'
 
     return {
         "speech": speech,
