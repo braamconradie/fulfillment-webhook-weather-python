@@ -103,7 +103,7 @@ def makeWebhookResult(data):
 
     print("Response:")
     print(speech)
-    speech = 'wie laaste lag, lag die lekkerste'
+    speech = 'wie laaste lag, huil die lekkerste'
 
     return {
         "speech": speech,
