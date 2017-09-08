@@ -62,7 +62,7 @@ def processRequest(req):
     data = json.loads(result)
     res = makeWebhookResult(data)
     """
-    data = "meaningless"
+    res = "meaningless"
     
     try:
         result = urlopen('https://dweet.io/dweet/for/braamapiai?hello=wennerz').read()
