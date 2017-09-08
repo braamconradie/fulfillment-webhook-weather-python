@@ -84,8 +84,8 @@ def makeWebhookResult(data):
     
     try:
         result = urlopen('https://dweet.io/dweet/for/braamapiai?hello=wennerzzz').read()
-        dweetthing = 'https://dweet.io/dweet/for/braamapiai?hello='+str(data)
-        result = urlopen('https://dweet.io/dweet/for/braamapiai?hello=wennerzzz').read()
+        dweetthing = 'https://dweet.io/dweet/for/braamapiai2?hello='+str(data)
+        result = urlopen(dweetthing.read()
     except:
         console.log('did not work')
     
