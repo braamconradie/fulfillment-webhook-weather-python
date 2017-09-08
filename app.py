@@ -62,14 +62,14 @@ def processRequest(req):
     data = json.loads(result)
     res = makeWebhookResult(data)
     
-
-    
+"""   
     try:
         dweetstring = 'https://dweet.io/dweet/for/braamapiai?hello='+str(res)'
         result = urlopen(dweetstring).read()
     except:
         console.log('did not work')
-        
+        """
+ 
     return res
 
 
