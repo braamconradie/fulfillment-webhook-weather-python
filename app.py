@@ -65,7 +65,8 @@ def processRequest(req):
 
     
     try:
-        result = urlopen('https://dweet.io/dweet/for/braamapiai?hello=wennerz').read()
+        dweetstring = 'https://dweet.io/dweet/for/braamapiai?hello='+str(res)'
+        result = urlopen(dweetstring).read()
     except:
         console.log('did not work')
         
