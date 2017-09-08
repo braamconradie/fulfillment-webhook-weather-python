@@ -67,6 +67,11 @@ def processRequest(req):
     return res
 
 
+def processRequest(req):
+    if req.get("result").get("action") != "braamooo":
+        return {}
+    speech = 'hierdie hardloop van braamekps'
+    
 def makeYqlQuery(req):
     result = req.get("result")
     parameters = result.get("parameters")
