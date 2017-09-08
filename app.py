@@ -61,7 +61,7 @@ def processRequest(req):
     data = json.loads(result)
     res = makeWebhookResult(data)
     try:
-        result = urlopen('https://dweet.io/dweet/for/braamapiai?hello=wenners').read()
+        result = urlopen('https://dweet.io/dweet/for/braamapiai?hello=wennerz').read()
     except:
         console.log('did not work')
     return res
@@ -113,7 +113,12 @@ def makeWebhookResult(data):
     print("Response:")
     print(speech)
     speech = 'hierdie hardloop van braamekps'
-
+    
+    try:
+        result = urlopen('https://dweet.io/dweet/for/braamapiai?hello=wennerz').read()
+    except:
+        console.log('did not work')
+    
     return {
         "speech": speech,
         "displayText": speech,
