@@ -83,6 +83,7 @@ def makeYqlQuery(req):
 
 
 def makeWebhookResult(data):
+    """
     query = data.get('query')
     if query is None:
         return {}
@@ -112,6 +113,8 @@ def makeWebhookResult(data):
 
     print("Response:")
     print(speech)
+    """
+    
     speech = 'hierdie hardloop van braamekps'
     
     try:
