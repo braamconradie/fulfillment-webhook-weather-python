@@ -83,12 +83,12 @@ def makeWebhookResult(data):
     speech = 'hierdie hardloop van braamekps'
     
     try:
-        console.log('nothing')
+        print('nothing')
        # result = urlopen('https://dweet.io/dweet/for/braamapiai?hello=wennerzzz').read()
        # dweetthing = 'https://dweet.io/dweet/for/braamapiai2?hello='+str(data)
        # result = urlopen(dweetthing.read()
     except:
-        console.log('did not work')
+        print('did not work')
     
     return {
         "speech": speech,
