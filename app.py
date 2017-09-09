@@ -85,7 +85,7 @@ def makeWebhookResult(data):
     try:
         print('nothing')
         result = urlopen('https://dweet.io/dweet/for/braamapiai?hello=wennerzzz').read()
-        dweetthing = 'https://dweet.io/dweet/for/braamapiai2?hello='+str('here is a long string')
+        dweetthing = 'https://dweet.io/dweet/for/braamapiai2?hello=werktoglekker'
         result = urlopen(dweetthing).read()
     except:
         print('did not work')
