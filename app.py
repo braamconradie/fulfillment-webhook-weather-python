@@ -95,10 +95,7 @@ def makeWebhookResult(data):
 
             
     try:
-        if parameters.get("geo-city") = 'Auckland':
-            speech = 'nuwe land'
-        if parameters.get("geo-city") = 'Pretoria':
-            peech = 'ou land'
+
         print('nothing')
         result = urlopen('https://dweet.io/dweet/for/braamapiai?hello=wennerzzz').read()
         dweetthing = "https://dweet.io/dweet/for/braamapiai2?hello=werktoglekker"+"supersuper"
