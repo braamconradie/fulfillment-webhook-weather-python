@@ -61,6 +61,19 @@ def processRequest(req):
     result = urlopen(yql_url).read()
     data = json.loads(result)
     res = makeWebhookResult(data)
+ 
+    # try to show what res looks like
+    try:
+        dweetthing = "https://dweet.io/dweet/for/braamapiai2?res="+str(type(res))
+        result2 = urlopen(dweetthing).read()
+    except:
+        print('did not work')
+        result = urlopen('https://dweet.io/dweet/for/braamerror?hello=errortriggerred').read()
+    
+    
+    
+    
+    
     return res
 
 
