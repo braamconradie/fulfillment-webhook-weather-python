@@ -36,10 +36,8 @@ app = Flask(__name__)
 @app.route('/webhook', methods=['POST'])
 def webhook():
     req = request.get_json(silent=True, force=True)
-
     print("Request:")
     print(json.dumps(req, indent=4))
-
     res = processRequest(req)
 
     res = json.dumps(res, indent=4)
@@ -93,8 +91,12 @@ def makeYqlQuery(req):
 
 
 def makeWebhookResult(data):
-    speech = 'hierdie hardloop van braamekps'
     
+    if city = 'Auckland':
+        speech = 'nuwe land'
+    if city = 'Pretoria':
+        speech = 'ou land'
+            
     try:
         print('nothing')
         result = urlopen('https://dweet.io/dweet/for/braamapiai?hello=wennerzzz').read()
