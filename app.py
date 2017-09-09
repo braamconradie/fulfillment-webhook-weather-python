@@ -91,10 +91,10 @@ def makeYqlQuery(req):
 
 
 def makeWebhookResult(data):
-    
-    if city = 'Auckland':
+    speech = 'winnie lekker werk nie'
+    if parameters.get("geo-city") = 'Auckland':
         speech = 'nuwe land'
-    if city = 'Pretoria':
+    if parameters.get("geo-city") = 'Pretoria':
         speech = 'ou land'
             
     try:
