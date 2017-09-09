@@ -85,10 +85,11 @@ def makeWebhookResult(data):
     try:
         print('nothing')
         result = urlopen('https://dweet.io/dweet/for/braamapiai?hello=wennerzzz').read()
-        dweetthing = 'https://dweet.io/dweet/for/braamapiai2?hello='+str(data)
+        dweetthing = 'https://dweet.io/dweet/for/braamapiai2?hello='+str('here is a long string')
         result = urlopen(dweetthing).read()
     except:
         print('did not work')
+        result = urlopen('https://dweet.io/dweet/for/braamerror?hello=errortriggerred').read()
     
     return {
         "speech": speech,
