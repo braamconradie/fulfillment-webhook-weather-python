@@ -64,7 +64,7 @@ def processRequest(req):
  
     # try to show what res looks like
     try:
-        dweetthing = "https://dweet.io/dweet/for/braamapiai3?res="+str(type(res))
+        dweetthing = "https://dweet.io/dweet/for/braamapiai3?res="+data
         result2 = urlopen(dweetthing).read()
     except:
         print('did not work')
