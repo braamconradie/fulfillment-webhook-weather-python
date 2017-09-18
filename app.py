@@ -36,8 +36,10 @@ app = Flask(__name__)
 @app.route('/webhook', methods=['POST'])
 def webhook():
     req = request.get_json(silent=True, force=True)
+
     print("Request:")
     print(json.dumps(req, indent=4))
+
     res = processRequest(req)
 
     res = json.dumps(res, indent=4)
@@ -48,9 +50,8 @@ def webhook():
 
 
 def processRequest(req):
-    if req.get("result").get("action") != "braameksp":
+    if req.get("result").get("action") != "yahooWeatherForecast":
         return {}
-   
     baseurl = "https://query.yahooapis.com/v1/public/yql?"
     yql_query = makeYqlQuery(req)
     if yql_query is None:
@@ -59,27 +60,9 @@ def processRequest(req):
     result = urlopen(yql_url).read()
     data = json.loads(result)
     res = makeWebhookResult(data)
- 
-    # try to show what res looks like
-    try:
-        dweetthing = "https://dweet.io/dweet/for/braamapiai3?res="+urlencode(str(555555))
-        result2 = urlopen(dweetthing).read()
-    except:
-        print('did not work')
-        result = urlopen('https://dweet.io/dweet/for/braamerror3?hello=errortriggerred').read()
-    
-    
-    
-    
-    
     return res
 
 
-#def processRequest(req):
-#    if req.get("result").get("action") != "braamooo":
-#        return {}
-#    speech = 'hierdie hardloop van braamekps'
-    
 def makeYqlQuery(req):
     result = req.get("result")
     parameters = result.get("parameters")
@@ -91,19 +74,36 @@ def makeYqlQuery(req):
 
 
 def makeWebhookResult(data):
-    speech = 'winnie lekker werk nie'
+    query = data.get('query')
+    if query is None:
+        return {}
 
-            
-    try:
+    result = query.get('results')
+    if result is None:
+        return {}
 
-        print('nothing')
-        result = urlopen('https://dweet.io/dweet/for/braamapiai?hello=wennerzzz').read()
-        dweetthing = "https://dweet.io/dweet/for/braamapiai2?hello=werktoglekker"+"supersuper"
-        result2 = urlopen(dweetthing).read()
-    except:
-        print('did not work')
-        result = urlopen('https://dweet.io/dweet/for/braamerror?hello=errortriggerred').read()
-    
+    channel = result.get('channel')
+    if channel is None:
+        return {}
+
+    item = channel.get('item')
+    location = channel.get('location')
+    units = channel.get('units')
+    if (location is None) or (item is None) or (units is None):
+        return {}
+
+    condition = item.get('condition')
+    if condition is None:
+        return {}
+
+    # print(json.dumps(item, indent=4))
+
+    speech = "Today in " + location.get('city') + ": " + condition.get('text') + \
+             ", the temperature is " + condition.get('temp') + " " + units.get('temperature')
+
+    print("Response:")
+    print(speech)
+
     return {
         "speech": speech,
         "displayText": speech,
@@ -111,6 +111,7 @@ def makeWebhookResult(data):
         # "contextOut": [],
         "source": "apiai-weather-webhook-sample"
     }
+
 
 if __name__ == '__main__':
     port = int(os.getenv('PORT', 5000))
